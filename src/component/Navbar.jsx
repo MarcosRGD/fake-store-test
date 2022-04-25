@@ -3,7 +3,7 @@ import React from 'react';
 const Navbar = () => {
   return (
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
         <a class="navbar-brand fw-bold fs-4" href="/">
           SHOP TEST
         </a>
@@ -40,6 +40,12 @@ const Navbar = () => {
           <div className="buttons">
             <a href="" className="btn btn-outline-dark">
               <i className="fa fa-sign-in me-1"></i> Login
+            </a>
+            <a href="" className="btn btn-outline-dark ms-2">
+              <i className="fa fa-user-plus me-1"></i> Register
+            </a>
+            <a href="" className="btn btn-outline-dark ms-2">
+              <i className="fa fa-shopping-cart me-1"></i> Cart (0)
             </a>
           </div>
         </div>
