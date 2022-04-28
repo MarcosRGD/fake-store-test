@@ -1,14 +1,14 @@
 const cart = [];
 
-const handleCard =(state = cart, action) => {
+const handleCart =(state = cart, action) => {
     const product = action.payload;
-    switch (action.type){
-        case ADDITEM:
-            //Check if product is already exist
+    switch (action.type) {
+        case "ADDITEM":
+            // Check if Product is Already Exist
             const exist = state.find((x)=> x.id === product.id);
             if(exist){
-                //increase the quantity
-                return PopStateEvent.map((x)=>
+                // Increase the Quantity
+                return state.map((x)=>
                 x.id === product.id ? {...x, qty: x.qty + 1} : x
                 );
             }else{
@@ -24,18 +24,21 @@ const handleCard =(state = cart, action) => {
             break;
 
             case "DELITEM":
-            const exist1 = state.find((x)=> x.id === product.id);
-            if(exist1.qty === 1){
-                return state.filter((x)=> x.id !== exist1.id);
-            }else{
-                return state.map((x) =>
-                    x.id === product.id ? {...x, qty: x.qty-1} : x
-                );
-
+                const exist1 = state.find((x)=> x.id === product.id);
+                if(exist1.qty === 1){
+                    return state.filter((x)=> x.id !== exist1.id);
+                }else{
+                    return state.map((x)=>
+                        x.id === product.id ? {...x, qty: x.qty-1} : x
+                    );
                 }
                 break;
-        
+    
         default:
-            break;    
+            return state;
+            break;
     }
+
 }
+
+export default handleCart;

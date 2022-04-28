@@ -1,19 +1,21 @@
-import './App.css';
-import Navbar from './component/Navbar';
-import Home from './component/Home';
-import { Routes, Route } from 'react-router-dom';
-import Products from './component/Products';
-import Product from './component/Product';
+import "./App.css";
+import Home from "./component/Home";
+import Navbar from "./component/Navbar";
+import { Switch, Route } from "react-router-dom";
+import Products from "./component/Products";
+import Product from "./component/Product";
+import Cart from "./component/Cart";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/products" element={<Products/>}/>
-        <Route path="/products/:id}" element={<Product/>}/>
-      </Routes>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/products" component={Products} />
+        <Route exact path="/products/:id" component={Product} />
+        <Route exact path="/cart" component={Cart} />
+      </Switch>
     </>
   );
 }
